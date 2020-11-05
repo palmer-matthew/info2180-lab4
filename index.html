@@ -8,13 +8,22 @@
     <script src="app.js"></script>
   </head>
   <body>
-    <h1>Marvel Hero Search<h1>
-    <form action="#" method="post">
-        <div class="form-group">
-            <input type="search" name="search" id="search" placeholder="E.G Captain America or Steve Rogers">
-        </div>
-        <button type="submit" class="btn">Search</button>
-    </form>
-    <div class="result"></div>
+    <header>
+        <h1>Marvel Hero Search</h1>
+    </header>
+    <section class="search">
+        <form action="#" method="GET">
+            <div class="form-group">
+                <input type="text" name="query" id="search" placeholder="E.G Captain America or Steve Rogers">
+            </div>
+            <button type="submit" class="btn">Search</button>
+        </form>
+    </section>
+    <header>
+        <h3>Result </h3>
+        <hr>
+    </header>
+    <div id="result">
+    </div>
   </body>
 </html>
