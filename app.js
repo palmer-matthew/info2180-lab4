@@ -9,8 +9,13 @@ window.onload = function(event){
             .then(response => response.text())
             .then(data => {
                 let space = document.querySelector("#result");
-                space.innerHTML = data; 
-                //console.log(data);
+                if(data.trim() == "SUPERHERO NOT FOUND"){
+                    space.classList.add("noresults");
+                    space.innerHTML = data.trim();
+                }else{
+                    space.classList.remove("noresults");
+                    space.innerHTML = data.trim(); 
+                }
             })
             .catch(error => {
                 console.log(error);

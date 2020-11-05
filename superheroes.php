@@ -83,12 +83,12 @@ $superheroes = [
                 $second_condition = strtoupper($superheroes[$x]['alias']) == $sanitize || strpos($superheroes[$x]['alias'], $sanitize) > 0;
                 if($first_condition || $second_condition){
                     $found = true;
-                    echo "<h3>".$superheroes[$x]['alias']."</h3><h4>".$superheroes[$x]['name']."</h4><p>".$superheroes[$x]['biography']."</p>";
+                    echo "<h3>".strtoupper($superheroes[$x]['alias'])."</h3><h4> A.K.A ".strtoupper($superheroes[$x]['name'])."</h4><p>".$superheroes[$x]['biography']."</p>";
                 }
             } 
 
             if($found == false){
-                echo "SuperHero Not Found";
+                echo strtoupper("SuperHero Not Found");
             }
         }
     }
