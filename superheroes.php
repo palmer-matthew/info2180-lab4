@@ -67,7 +67,7 @@ $superheroes = [
 
 <?php
     if($_SERVER['REQUEST_METHOD'] == 'GET'){
-        $sanitize = strtoupper(strip_tags($_GET['query']));
+        $sanitize = strtoupper(filter_var($_GET['query'], FILTER_SANITIZE_STRING, FILTER_FLAG_NO_ENCODE_QUOTES));
         if($sanitize == ""){
             $intial = "<ul>";
             $end = "</ul>";
@@ -79,8 +79,8 @@ $superheroes = [
         }else{
             $found = false;
             for ($x = 0; $x < count($superheroes); $x++) {
-                $first_condition = strtoupper($superheroes[$x]['name']) == $sanitize || strpos($superheroes[$x]['name'], $sanitize) > 0;
-                $second_condition = strtoupper($superheroes[$x]['alias']) == $sanitize || strpos($superheroes[$x]['alias'], $sanitize) > 0;
+                $first_condition = strtoupper($superheroes[$x]['name']) == $sanitize;
+                $second_condition = strtoupper($superheroes[$x]['alias']) == $sanitize;
                 if($first_condition || $second_condition){
                     $found = true;
                     echo "<h3>".strtoupper($superheroes[$x]['alias'])."</h3><h4> A.K.A ".strtoupper($superheroes[$x]['name'])."</h4><p>".$superheroes[$x]['biography']."</p>";
